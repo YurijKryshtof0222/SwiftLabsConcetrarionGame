@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		849948C42AF4FCE500596E62 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849948C02AF4FCE500596E62 /* Game.swift */; };
+		849948C62AF4FCE500596E62 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849948C22AF4FCE500596E62 /* Card.swift */; };
+		849948C92AF4FE7C00596E62 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849948C72AF4FE7C00596E62 /* CardView.swift */; };
+		849948CA2AF4FE7C00596E62 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849948C82AF4FE7C00596E62 /* CardView.xib */; };
 		84A357552AF435D0000BA756 /* NibLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A357542AF435D0000BA756 /* NibLoadingView.swift */; };
-		84A357592AF43730000BA756 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A357562AF4372F000BA756 /* Card.swift */; };
-		84A3575A2AF43730000BA756 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A357572AF43730000BA756 /* CardView.swift */; };
-		84A3575B2AF43730000BA756 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A357582AF43730000BA756 /* Game.swift */; };
-		84A3575F2AF4399E000BA756 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A3575E2AF4399E000BA756 /* CardView.xib */; };
 		84EC2C4C2AE41A7200651DE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EC2C4B2AE41A7200651DE8 /* AppDelegate.swift */; };
 		84EC2C4E2AE41A7200651DE8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EC2C4D2AE41A7200651DE8 /* SceneDelegate.swift */; };
 		84EC2C502AE41A7200651DE8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EC2C4F2AE41A7200651DE8 /* ViewController.swift */; };
@@ -40,11 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		849948C02AF4FCE500596E62 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		849948C22AF4FCE500596E62 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		849948C72AF4FE7C00596E62 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		849948C82AF4FE7C00596E62 /* CardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
 		84A357542AF435D0000BA756 /* NibLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadingView.swift; sourceTree = "<group>"; };
-		84A357562AF4372F000BA756 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Card.swift; path = ../../../Documents/SwiftLab3Example/Lab3/Card.swift; sourceTree = "<group>"; };
-		84A357572AF43730000BA756 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardView.swift; path = ../../../Documents/SwiftLab3Example/Lab3/CardView.swift; sourceTree = "<group>"; };
-		84A357582AF43730000BA756 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Game.swift; path = ../../../Documents/SwiftLab3Example/Lab3/Game.swift; sourceTree = "<group>"; };
-		84A3575E2AF4399E000BA756 /* CardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CardView.xib; path = ../../../Documents/SwiftLab3Example/Lab3/CardView.xib; sourceTree = "<group>"; };
 		84EC2C482AE41A7200651DE8 /* Concetration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Concetration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84EC2C4B2AE41A7200651DE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84EC2C4D2AE41A7200651DE8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,14 +109,14 @@
 		84EC2C4A2AE41A7200651DE8 /* Concetration */ = {
 			isa = PBXGroup;
 			children = (
+				849948C72AF4FE7C00596E62 /* CardView.swift */,
+				849948C82AF4FE7C00596E62 /* CardView.xib */,
+				849948C22AF4FCE500596E62 /* Card.swift */,
+				849948C02AF4FCE500596E62 /* Game.swift */,
 				84EC2C4B2AE41A7200651DE8 /* AppDelegate.swift */,
 				84EC2C4D2AE41A7200651DE8 /* SceneDelegate.swift */,
 				84EC2C4F2AE41A7200651DE8 /* ViewController.swift */,
 				84A357542AF435D0000BA756 /* NibLoadingView.swift */,
-				84A357572AF43730000BA756 /* CardView.swift */,
-				84A357562AF4372F000BA756 /* Card.swift */,
-				84A357582AF43730000BA756 /* Game.swift */,
-				84A3575E2AF4399E000BA756 /* CardView.xib */,
 				84EC2C512AE41A7200651DE8 /* Main.storyboard */,
 				84EC2C542AE41A7400651DE8 /* Assets.xcassets */,
 				84EC2C562AE41A7400651DE8 /* LaunchScreen.storyboard */,
@@ -249,7 +249,7 @@
 			files = (
 				84EC2C582AE41A7400651DE8 /* LaunchScreen.storyboard in Resources */,
 				84EC2C552AE41A7400651DE8 /* Assets.xcassets in Resources */,
-				84A3575F2AF4399E000BA756 /* CardView.xib in Resources */,
+				849948CA2AF4FE7C00596E62 /* CardView.xib in Resources */,
 				84EC2C532AE41A7200651DE8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,12 +275,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				849948C92AF4FE7C00596E62 /* CardView.swift in Sources */,
 				84EC2C502AE41A7200651DE8 /* ViewController.swift in Sources */,
+				849948C42AF4FCE500596E62 /* Game.swift in Sources */,
+				849948C62AF4FCE500596E62 /* Card.swift in Sources */,
 				84A357552AF435D0000BA756 /* NibLoadingView.swift in Sources */,
-				84A3575B2AF43730000BA756 /* Game.swift in Sources */,
-				84A357592AF43730000BA756 /* Card.swift in Sources */,
 				84EC2C4C2AE41A7200651DE8 /* AppDelegate.swift in Sources */,
-				84A3575A2AF43730000BA756 /* CardView.swift in Sources */,
 				84EC2C4E2AE41A7200651DE8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
