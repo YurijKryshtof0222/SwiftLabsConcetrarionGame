@@ -15,11 +15,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="HTr-9Y-acI">
-                                <rect key="frame" x="22" y="20" width="330" height="445"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="HTr-9Y-acI">
+                                <rect key="frame" x="22" y="20" width="303" height="445"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="gsj-f0-Dvg">
-                                        <rect key="frame" x="0.0" y="0.0" width="330" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="303" height="100"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="myH-Er-TGD" customClass="CardView" customModule="Concetration" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -37,7 +37,7 @@
                                                     <constraint firstAttribute="width" constant="100" id="vbQ-60-bIl"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HcL-my-niW" customClass="CardView" customModule="Concetration" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HcL-my-niW" customClass="CardView" customModule="Concetration" customModuleProvider="target">
                                                 <rect key="frame" x="230" y="0.0" width="100" height="100"/>
                                                 <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -48,7 +48,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="n9z-0A-AK9">
-                                        <rect key="frame" x="0.0" y="115" width="330" height="100"/>
+                                        <rect key="frame" x="0.0" y="115" width="303" height="100"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aRb-2l-FNm" customClass="CardView" customModule="Concetration" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -66,7 +66,7 @@
                                                     <constraint firstAttribute="width" constant="100" id="VRO-aB-ufL"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TIy-UT-nmq" customClass="CardView" customModule="Concetration" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TIy-UT-nmq" customClass="CardView" customModule="Concetration" customModuleProvider="target">
                                                 <rect key="frame" x="230" y="0.0" width="100" height="100"/>
                                                 <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -77,7 +77,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="0m5-ot-81z">
-                                        <rect key="frame" x="0.0" y="230" width="330" height="100"/>
+                                        <rect key="frame" x="0.0" y="230" width="303" height="100"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ttm-vy-YI7" customClass="CardView" customModule="Concetration" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -95,7 +95,7 @@
                                                     <constraint firstAttribute="width" constant="100" id="Udi-Tv-hgW"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZq-Ft-Fdk" customClass="CardView" customModule="Concetration" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cZq-Ft-Fdk" customClass="CardView" customModule="Concetration" customModuleProvider="target">
                                                 <rect key="frame" x="230" y="0.0" width="100" height="100"/>
                                                 <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -106,7 +106,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="VGO-h7-5xx">
-                                        <rect key="frame" x="0.0" y="345" width="330" height="100"/>
+                                        <rect key="frame" x="0.0" y="345" width="303" height="100"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y4V-I2-Wbg" customClass="CardView" customModule="Concetration" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -124,7 +124,7 @@
                                                     <constraint firstAttribute="width" constant="100" id="ax0-C8-Xqi"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5YB-RA-Wwl" customClass="CardView" customModule="Concetration" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5YB-RA-Wwl" customClass="CardView" customModule="Concetration" customModuleProvider="target">
                                                 <rect key="frame" x="230" y="0.0" width="100" height="100"/>
                                                 <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -141,7 +141,6 @@
                         <constraints>
                             <constraint firstItem="HTr-9Y-acI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="Shb-rQ-768"/>
                             <constraint firstItem="HTr-9Y-acI" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="20" id="TEP-M4-1gO"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="HTr-9Y-acI" secondAttribute="trailing" constant="20" id="TFj-BX-nYa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

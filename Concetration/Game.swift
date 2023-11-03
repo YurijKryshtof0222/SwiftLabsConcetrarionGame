@@ -11,22 +11,27 @@ class Game {
     ]
     var cards: [Card] = []
     
+    var imageCountDict: [String: Int] = [:]
+    
     init (count maxCount:Int) {
-        cardsCount = maxCount
-        var remainingCardSrs = cardsSrs
-        for _ in 0..<maxCount {
+    cardsCount = maxCount
+    for _ in 0..<maxCount {
+        for _ in 0..<2 {
+            var randomImage = getRandomImage()
             
-            if remainingCardSrs.isEmpty {
-                remainingCardSrs = cardsSrs
+            while let count = imageCountDict[randomImage], count >= 2 {
+                randomImage = getRandomImage()
             }
-            
-            let randomIndex = Int.random(in: 0..<remainingCardSrs.count)
-            let selectedImage = remainingCardSrs.remove(at: randomIndex)
-            
-            for _ in 0..<2 {
-                cards.append(Card(id: 0, img: selectedImage, isFaceUp: false, isMatched: false))
+            imageCountDict[randomImage, default: 0] += 1
+            cards.append(Card(id: 0, img: randomImage, isFaceUp: false, isMatched: false))
             }
         }
+    }
+
+    
+    private func getRandomImage() -> String {
+        let randomInt = Int.random(in: 0..<cardsSrs.count)
+        return cardsSrs[randomInt]
     }
     
     func flipCard(at index: Int) {}
