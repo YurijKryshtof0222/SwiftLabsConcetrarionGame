@@ -13,10 +13,18 @@ class Game {
     
     init (count maxCount:Int) {
         cardsCount = maxCount
+        var remainingCardSrs = cardsSrs
         for _ in 0..<maxCount {
+            
+            if remainingCardSrs.isEmpty {
+                remainingCardSrs = cardsSrs
+            }
+            
+            let randomIndex = Int.random(in: 0..<remainingCardSrs.count)
+            let selectedImage = remainingCardSrs.remove(at: randomIndex)
+            
             for _ in 0..<2 {
-                let randomInt = Int.random(in: 0..<cardsSrs.count)
-                cards.append(Card(id: 0, img: cardsSrs[randomInt], isFaceUp: false, isMatched: false))
+                cards.append(Card(id: 0, img: selectedImage, isFaceUp: false, isMatched: false))
             }
         }
     }
