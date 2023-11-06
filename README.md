@@ -1,3 +1,5 @@
+
+
 # SwiftLabsConcetrarionGame
 
 <h1>Лабораторна робота №3</h1>
@@ -14,4 +16,4 @@
 випадку картки перегортаються зображення донизу. Мета гри -
 відкрити всі картки.</p>
 
-https://github.com/YurijKryshtof0222/SwiftLabsConcetrarionGame/assets/105464154/a23d2927-985d-43e0-aed6-71deafe5352d
+https://github.com/YurijKryshtof0222/SwiftLabsConcetrarionGame/assets/105464154/affac8eb-8bf8-4d4d-87a6-dda259dcea0e
