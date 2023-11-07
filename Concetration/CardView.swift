@@ -27,8 +27,10 @@ class CardView: NibLoadingView {
     weak var delegate: CardViewDelegate?
     
     @IBAction func buttonTapped(_ sender:UIButton){
-        //delegate?.didClicked(sender: self)
-        
+        delegate?.didClicked(sender: self)
+    }
+    
+    func flip(_ sender:UIButton) {
         if (!card.isFaceUp) {
             topCard.flip(to: bottomCard, with: .transitionFlipFromLeft)
             card.isFaceUp = true
@@ -37,6 +39,7 @@ class CardView: NibLoadingView {
             card.isFaceUp = false
         }
     }
+    
     
     func configure (card:Card) {
         self.card = card

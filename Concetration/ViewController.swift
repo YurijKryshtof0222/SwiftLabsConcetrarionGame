@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     
     @IBOutlet var cardViews: [CardView]!
     
+    var compareCardView: CardView? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let pairCount = cardViews.count / 2
@@ -34,6 +36,17 @@ class ViewController: UIViewController {
 extension ViewController: CardViewDelegate {
     
     func didClicked(sender: CardView) {
-        
+        sender.flip(sender.btn)
+        if compareCardView == nil {
+            compareCardView = sender
+        } else {
+            if sender.card.img != compareCardView?.card.img {
+//                sleep(1)
+                compareCardView!.flip(compareCardView!.btn)
+                sender.flip(sender.btn)
+            }
+            
+            compareCardView = nil
+        }
     }
 }

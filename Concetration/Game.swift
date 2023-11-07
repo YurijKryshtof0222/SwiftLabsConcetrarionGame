@@ -14,29 +14,27 @@ class Game {
     var imageCountDict: [String: Int] = [:]
     
     init (count maxCount:Int) {
-    cardsCount = maxCount
-    for _ in 0..<maxCount {
-        for _ in 0..<2 {
-            var randomImage = getRandomImage()
+        cardsCount = maxCount
+        var idCount = 0
+        for _ in 0..<maxCount {
+            for _ in 0..<2 {
+                var randomImage = getRandomImage()
             
-            while let count = imageCountDict[randomImage], count >= 2 {
-                randomImage = getRandomImage()
-            }
-            imageCountDict[randomImage, default: 0] += 1
-            cards.append(Card(id: 0, img: randomImage, isFaceUp: false, isMatched: false))
+                while let count = imageCountDict[randomImage], count >= 2 {
+                    randomImage = getRandomImage()
+                }
+                imageCountDict[randomImage, default: 0] += 1
+                cards.append(Card(id: idCount, img: randomImage, isFaceUp: false))
+                idCount += 1
+                }
             }
         }
-    }
 
     
     private func getRandomImage() -> String {
         let randomInt = Int.random(in: 0..<cardsSrs.count)
         return cardsSrs[randomInt]
     }
-    
-    func flipCard(at index: Int) {}
-    
-    func checkForMatch() {}
     
     func isGameWon() -> Bool {
         return false
