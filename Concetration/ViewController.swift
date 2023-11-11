@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     var game:Game!
     
-    var isHidden = false
+    var isDelayInProgress = false
     
     @IBOutlet var cardViews: [CardView]!
     
@@ -34,18 +34,31 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: CardViewDelegate {
-    
-    func didClicked(sender: CardView) {
+    func click(sender: CardView) {
+        guard !isDelayInProgress else {
+            return
+        }
         sender.flip(sender.btn)
+        
         if compareCardView == nil {
             compareCardView = sender
         } else {
             if sender.card.img != compareCardView?.card.img {
-                compareCardView!.flip(compareCardView!.btn)
-                sleep(1)
-                sender.flip(sender.btn)
+                isDelayInProgress = true
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                    self.compareCardView?.flip(self.compareCardView!.btn)
+                    sender.flip(sender.btn)
+                    self.compareCardView = nil
+                    
+                    self.isDelayInProgress = false
+                }
+            } else {
+                sender.card.isMatched = true
+                self.compareCardView?.card.isMatched = true
+                self.compareCardView = nil
             }
-            compareCardView = nil
         }
     }
+    
 }

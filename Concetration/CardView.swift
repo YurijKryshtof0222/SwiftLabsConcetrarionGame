@@ -2,12 +2,13 @@ import UIKit
 
 struct Card {
     var id: Int
-    var img:String
-    var isFaceUp:Bool
+    var img: String
+    var isFaceUp: Bool
+    var isMatched: Bool
 }
 
 protocol CardViewDelegate: AnyObject {
-    func didClicked(sender: CardView)
+    func click(sender: CardView)
 }
 
 class CardView: NibLoadingView {
@@ -25,12 +26,14 @@ class CardView: NibLoadingView {
     weak var delegate: CardViewDelegate?
     
     @IBAction func buttonTapped(_ sender:UIButton){
-        delegate?.didClicked(sender: self)
+        if !card.isMatched {
+            delegate?.click(sender: self)
+        }
     }
     
     func flip(_ sender:UIButton) {
         if (!card.isFaceUp) {
-            topCard.flip(to: bottomCard, with: .transitionFlipFromLeft)
+            topCard.flip(to: bottomCard, with: .transitionFlipFromRight)
             card.isFaceUp = true
         } else {
             bottomCard.flip(to: topCard, with: .transitionFlipFromLeft)

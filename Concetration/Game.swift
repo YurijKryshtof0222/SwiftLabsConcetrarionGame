@@ -11,9 +11,8 @@ class Game {
     ]
     var cards: [Card] = []
     
-    var imageCountDict: [String: Int] = [:]
-    
     init (count maxCount:Int) {
+        var imageCountDict: [String: Int] = [:]
         cardsCount = maxCount
         var idCount = 0
         for _ in 0..<maxCount {
@@ -24,7 +23,11 @@ class Game {
                     randomImage = getRandomImage()
                 }
                 imageCountDict[randomImage, default: 0] += 1
-                cards.append(Card(id: idCount, img: randomImage, isFaceUp: false))
+                cards.append(Card(
+                    id: idCount,
+                    img: randomImage,
+                    isFaceUp: false,
+                    isMatched: false))
                 idCount += 1
                 }
             }
