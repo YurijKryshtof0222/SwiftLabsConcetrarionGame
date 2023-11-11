@@ -14,11 +14,8 @@ protocol CardViewDelegate: AnyObject {
 class CardView: NibLoadingView {
 
     @IBOutlet weak var btn : UIButton!
-    
     @IBOutlet weak var topCard: UIView!
-    
     @IBOutlet weak var bottomCard: UIView!
-    
     @IBOutlet weak var imageView: UIImageView!
     
     var card:Card!

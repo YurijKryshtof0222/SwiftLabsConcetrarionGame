@@ -11,11 +11,8 @@ import UIKit
 class ViewController: UIViewController {
     
     var game:Game!
-    
     var isDelayInProgress = false
-    
     @IBOutlet var cardViews: [CardView]!
-    
     var compareCardView: CardView? = nil
     
     override func viewDidLoad() {
@@ -26,9 +23,9 @@ class ViewController: UIViewController {
     }
     
     func loadIcons () {
-        for i in 0..<game.cards.count {
-            cardViews[i].configure(card: game.cards[i])
-            cardViews[i].delegate = self
+        for (index, card) in game.cards.enumerated() {
+            cardViews[index].configure(card: card)
+            cardViews[index].delegate = self
         }
     }
 }
