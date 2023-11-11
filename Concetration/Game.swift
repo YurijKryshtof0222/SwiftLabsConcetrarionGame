@@ -36,10 +36,4 @@ class Game {
         return cardsSrs[randomInt]
     }
     
-    func isGameWon() -> Bool {
-        return false
-    }
-    
-    func restartGame() {}
-    
 }

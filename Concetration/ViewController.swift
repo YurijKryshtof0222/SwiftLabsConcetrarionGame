@@ -41,10 +41,6 @@ extension ViewController: CardViewDelegate {
             compareCardView = sender
         } else {
             if sender.card.img != compareCardView?.card.img {
-                sleep(1)
-//                let deadline = Date().advanced(by: 1)
-//                Thread.sleep(until: deadline)
-                
                 compareCardView!.flip(compareCardView!.btn)
                 sleep(1)
                 sender.flip(sender.btn)
