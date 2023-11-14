@@ -1,6 +1,7 @@
 class Game {
     
     let cardsCount:Int
+    var matchedCount: Int = 0
     let cardsSrs:[String] = [
         "image1",
         "image2",
