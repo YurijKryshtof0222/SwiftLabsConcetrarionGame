@@ -28,6 +28,15 @@ class ViewController: UIViewController {
             cardViews[index].delegate = self
         }
     }
+    
+    func restart() {
+        let pairCount = cardViews.count / 2
+        for x in cardViews {
+            x.flip(x.btn)
+        }
+        game = Game(count: pairCount)
+        loadIcons()
+    }
 }
 
 extension ViewController: CardViewDelegate {
@@ -54,8 +63,34 @@ extension ViewController: CardViewDelegate {
                 sender.card.isMatched = true
                 self.compareCardView?.card.isMatched = true
                 self.compareCardView = nil
+                game.matchedCount += 1
             }
         }
+        
+        if game.matchedCount == game.cardsCount {
+            showYouWinAlert()
+        }
+        
     }
     
+    
+    func showYouWinAlert() {
+        let alertController = UIAlertController(
+            title: "",
+            message: "You won",
+            preferredStyle: .alert)
+        
+        let action = UIAlertAction(
+            title: "Restart",
+            style: .default,
+            handler: {
+                action in
+                
+                self.restart()
+                
+        })
+        
+        alertController.addAction(action)
+        self.present(alertController, animated: true, completion: nil)
+    }
 }
