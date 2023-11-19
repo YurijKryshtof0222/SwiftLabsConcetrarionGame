@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8428A4CD2B0A4DD1005F6D4E /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8428A4CC2B0A4DD1005F6D4E /* File.swift */; };
 		849948C42AF4FCE500596E62 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849948C02AF4FCE500596E62 /* Game.swift */; };
 		849948C92AF4FE7C00596E62 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849948C72AF4FE7C00596E62 /* CardView.swift */; };
 		849948CA2AF4FE7C00596E62 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849948C82AF4FE7C00596E62 /* CardView.xib */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8428A4CC2B0A4DD1005F6D4E /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		849948C02AF4FCE500596E62 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		849948C72AF4FE7C00596E62 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		849948C82AF4FE7C00596E62 /* CardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				84EC2C542AE41A7400651DE8 /* Assets.xcassets */,
 				84EC2C562AE41A7400651DE8 /* LaunchScreen.storyboard */,
 				84EC2C592AE41A7400651DE8 /* Info.plist */,
+				8428A4CC2B0A4DD1005F6D4E /* File.swift */,
 			);
 			path = Concetration;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			files = (
 				849948C92AF4FE7C00596E62 /* CardView.swift in Sources */,
 				84EC2C502AE41A7200651DE8 /* ViewController.swift in Sources */,
+				8428A4CD2B0A4DD1005F6D4E /* File.swift in Sources */,
 				849948C42AF4FCE500596E62 /* Game.swift in Sources */,
 				84A357552AF435D0000BA756 /* NibLoadingView.swift in Sources */,
 				84EC2C4C2AE41A7200651DE8 /* AppDelegate.swift in Sources */,

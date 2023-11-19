@@ -10,87 +10,46 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var game:Game!
-    var isDelayInProgress = false
-    @IBOutlet var cardViews: [CardView]!
-    var compareCardView: CardView? = nil
+    @IBOutlet var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let pairCount = cardViews.count / 2
-        game = Game(count: pairCount)
-        loadIcons()
+        
+//        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        collectionView.collectionViewLayout = configureLayout()
     }
     
-    func loadIcons () {
-        for (index, card) in game.cards.enumerated() {
-            cardViews[index].configure(card: card)
-            cardViews[index].delegate = self
-        }
+    func configureLayout() -> UICollectionViewFlowLayout {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: collectionView.frame.size.width / 3 - 3 ,
+                                 height: collectionView.frame.size.height / 3 - 3)
+        layout.minimumInteritemSpacing = 1
+        layout.minimumInteritemSpacing = 1
+        
+        return layout
     }
-    
-    func restart() {
-        let pairCount = cardViews.count / 2
-        for x in cardViews {
-            x.flip(x.btn)
-        }
-        game = Game(count: pairCount)
-        loadIcons()
-    }
+
 }
 
-extension ViewController: CardViewDelegate {
-    func click(sender: CardView) {
-        guard !isDelayInProgress else {
-            return
-        }
-        sender.flip(sender.btn)
-        
-        if compareCardView == nil {
-            compareCardView = sender
-        } else {
-            if sender.card.img != compareCardView?.card.img {
-                isDelayInProgress = true
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                    self.compareCardView?.flip(self.compareCardView!.btn)
-                    sender.flip(sender.btn)
-                    self.compareCardView = nil
-                    
-                    self.isDelayInProgress = false
-                }
-            } else {
-                sender.card.isMatched = true
-                self.compareCardView?.card.isMatched = true
-                self.compareCardView = nil
-                game.matchedCount += 1
-            }
-        }
-        
-        if game.matchedCount == game.cardsCount {
-            showYouWinAlert()
-        }
-        
+//extension ViewController: UICollectionViewDelegate {
+//
+//}
+
+extension ViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 12
     }
-    
-    
-    func showYouWinAlert() {
-        let alertController = UIAlertController(
-            title: "",
-            message: "You won",
-            preferredStyle: .alert)
-        
-        let action = UIAlertAction(
-            title: "Restart",
-            style: .default,
-            handler: {
-                action in
-                
-                self.restart()
-                
-        })
-        
-        alertController.addAction(action)
-        self.present(alertController, animated: true, completion: nil)
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath)
+
+        return cell
     }
+
+}
+
+extension ViewController: UICollectionViewDelegateFlowLayout {
+    
 }
