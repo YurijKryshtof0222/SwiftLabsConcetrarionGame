@@ -77,7 +77,7 @@ extension ViewController: UICollectionViewDataSource {
 
 extension ViewController: CardViewDelegate {
     func click(sender: CardView) {
-        guard !isDelayInProgress else {
+        if isDelayInProgress || sender.card.isFaceUp {
             return
         }
         sender.flip(sender.btn)
