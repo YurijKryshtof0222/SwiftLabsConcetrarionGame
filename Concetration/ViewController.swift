@@ -33,8 +33,8 @@ class ViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: collectionView.frame.size.width / 3 - 3 ,
                                  height: collectionView.frame.size.height / 3 - 3)
-        layout.minimumInteritemSpacing = 1
-        layout.minimumInteritemSpacing = 1
+        layout.minimumInteritemSpacing = 0.1
+        layout.minimumInteritemSpacing = 0.1
         
         return layout
     }
@@ -65,7 +65,11 @@ extension ViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath)
+        
         let cardView = cell.contentView as! CardView
+        cardView.layer.cornerRadius = 5
+        cardView.layer.masksToBounds = true
+        
         cardView.configure(card: game.cards[i])
         cardView.delegate = self
         i += 1

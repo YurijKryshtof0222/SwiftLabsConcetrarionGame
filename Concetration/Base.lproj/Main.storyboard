@@ -50,7 +50,7 @@
                             <constraint firstItem="Rco-fu-kco" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-350" id="QEw-Xp-ZVh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vZQ-7X-fU6" secondAttribute="trailing" constant="10" id="Usf-8h-Zrr"/>
                             <constraint firstItem="vZQ-7X-fU6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="nK0-bA-yTa"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vZQ-7X-fU6" secondAttribute="bottom" constant="10" id="taL-m7-sXl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vZQ-7X-fU6" secondAttribute="bottom" id="taL-m7-sXl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
