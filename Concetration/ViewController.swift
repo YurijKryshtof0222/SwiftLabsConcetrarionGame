@@ -17,8 +17,6 @@ class ViewController: UIViewController {
     var compareCardView: CardView? = nil
     var cardsCount = 12
     
-    var i = 0
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,7 +39,6 @@ class ViewController: UIViewController {
     
     func restart() {
         let pairCount = cardsCount / 2
-        i = 0
         collectionView.dataSource = self
         
         game = Game(count: pairCount)
@@ -70,9 +67,10 @@ extension ViewController: UICollectionViewDataSource {
         cardView.layer.cornerRadius = 5
         cardView.layer.masksToBounds = true
         
-        cardView.configure(card: game.cards[i])
+        let card = game.cards[indexPath.item]
+        cardView.configure(card: card)
         cardView.delegate = self
-        i += 1
+
         return cell
     }
 
