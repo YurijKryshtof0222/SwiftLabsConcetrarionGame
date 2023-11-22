@@ -41,11 +41,7 @@ class CardView: NibLoadingView {
     
     func configure (card:Card) {
         self.card = card
-        //let img = UIImageView(image: UIImage(named: card.img))
         imageView.image = UIImage(named: card.img)
-        //img.centerMode = .scaleToFill
-        /*img.center = CGPoint(x: bottomCard.frame.size.width/2, y: bottomCard.frame.size.height / 2)*/
-        //bottomCard.addSubview(img)
     }
     
 

@@ -1,4 +1,4 @@
-class Game {
+class CardsGenerator {
     
     let cardsCount:Int
     var matchedCount: Int = 0

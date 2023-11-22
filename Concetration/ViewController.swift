@@ -8,11 +8,16 @@
 
 import UIKit
 
+struct Constants {
+    static let delayDuration: TimeInterval = 1.5
+    static let cellSpacing: CGFloat = 0.1
+}
+
 class ViewController: UIViewController {
     
     @IBOutlet var collectionView: UICollectionView!
     
-    var game:Game!
+    var game:CardsGenerator!
     var isDelayInProgress = false
     var compareCardView: CardView? = nil
     var cardsCount = 12
@@ -21,7 +26,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let pairCount = cardsCount / 2
-        game = Game(count: pairCount)
+        game = CardsGenerator(count: pairCount)
 
         collectionView.dataSource = self
         collectionView.collectionViewLayout = configureLayout()
@@ -31,8 +36,8 @@ class ViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: collectionView.frame.size.width / 3 - 3 ,
                                  height: collectionView.frame.size.height / 3 - 3)
-        layout.minimumInteritemSpacing = 0.1
-        layout.minimumInteritemSpacing = 0.1
+        layout.minimumInteritemSpacing = Constants.cellSpacing
+//        layout.minimumLineSpacing = Constants.cellSpacing
         
         return layout
     }
@@ -41,7 +46,7 @@ class ViewController: UIViewController {
         let pairCount = cardsCount / 2
         collectionView.dataSource = self
         
-        game = Game(count: pairCount)
+        game = CardsGenerator(count: pairCount)
         for (index, indexPath) in collectionView.indexPathsForVisibleItems.enumerated() {
             if let cell = collectionView.cellForItem(at: indexPath) {
                 if let cardView = cell.contentView as? CardView {
