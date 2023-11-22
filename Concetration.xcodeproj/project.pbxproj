@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84009EE62B0E9CEF0021D45E /* GameConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84009EE52B0E9CEF0021D45E /* GameConfig.swift */; };
 		849948C42AF4FCE500596E62 /* CardsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849948C02AF4FCE500596E62 /* CardsGenerator.swift */; };
 		849948C92AF4FE7C00596E62 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849948C72AF4FE7C00596E62 /* CardView.swift */; };
 		849948CA2AF4FE7C00596E62 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849948C82AF4FE7C00596E62 /* CardView.xib */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		84009EE52B0E9CEF0021D45E /* GameConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConfig.swift; sourceTree = "<group>"; };
 		849948C02AF4FCE500596E62 /* CardsGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsGenerator.swift; sourceTree = "<group>"; };
 		849948C72AF4FE7C00596E62 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		849948C82AF4FE7C00596E62 /* CardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				84EC2C4F2AE41A7200651DE8 /* ViewController.swift */,
 				84A357542AF435D0000BA756 /* NibLoadingView.swift */,
 				849948C72AF4FE7C00596E62 /* CardView.swift */,
+				84009EE52B0E9CEF0021D45E /* GameConfig.swift */,
 				849948C02AF4FCE500596E62 /* CardsGenerator.swift */,
 				849948C82AF4FE7C00596E62 /* CardView.xib */,
 				84EC2C512AE41A7200651DE8 /* Main.storyboard */,
@@ -274,6 +277,7 @@
 			files = (
 				849948C92AF4FE7C00596E62 /* CardView.swift in Sources */,
 				84EC2C502AE41A7200651DE8 /* ViewController.swift in Sources */,
+				84009EE62B0E9CEF0021D45E /* GameConfig.swift in Sources */,
 				849948C42AF4FCE500596E62 /* CardsGenerator.swift in Sources */,
 				84A357552AF435D0000BA756 /* NibLoadingView.swift in Sources */,
 				84EC2C4C2AE41A7200651DE8 /* AppDelegate.swift in Sources */,
