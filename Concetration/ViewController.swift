@@ -50,21 +50,38 @@ class ViewController: UIViewController {
         })
         
         alertController.addTextField{(textField) in
-            textField.placeholder = "Enter rows: "}
+            textField.placeholder = "Enter rows: "
+            textField.keyboardType = .numberPad
+            textField.delegate = self
+        }
         
         alertController.addTextField{(textField) in
-            textField.placeholder = "Enter cols: "}
+            textField.placeholder = "Enter cols: "
+            textField.keyboardType = .numberPad
+            textField.delegate = self
+        }
+        
+        let errorAlert = UIAlertController(
+            title: "Error",
+            message: "Count of card cannot be odd",
+            preferredStyle: .alert)
+        errorAlert.addAction(continueAction)
+                              
         
         let restartAction = UIAlertAction(
             title: "Restart",
             style: .default,
             handler: {
                 action in
-                let setRowsInput = alertController.textFields![0].text!
-                let setColsInput = alertController.textFields![1].text!
+                let setRows = Int(alertController.textFields![0].text!)
+                let setCols = Int(alertController.textFields![1].text!)
                 
-                print(setRowsInput)
-                print(setColsInput)
+                if (setRows! * setCols!) % 2 != 0 {
+                    self.present(errorAlert, animated: true, completion: nil)
+                }
+                else {
+//                    self.restart()
+                }
         })
         alertController.addAction(continueAction)
         alertController.addAction(restartAction)
@@ -83,8 +100,10 @@ class ViewController: UIViewController {
     }
     
     func restart() {
+        gameConfig = GameConfig(rows: 4, cols: 3)
         let pairCount = gameConfig.cardCount / 2
         collectionView.dataSource = self
+        collectionView.collectionViewLayout = configureLayout()
         
         game = CardsGenerator(count: pairCount)
         for (index, indexPath) in collectionView.indexPathsForVisibleItems.enumerated() {
@@ -98,6 +117,15 @@ class ViewController: UIViewController {
         
     }
 
+}
+
+extension ViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let allowedCharacterSet = CharacterSet(charactersIn: "123456789")
+        let replacementStringCharacterSet = CharacterSet(charactersIn: string)
+
+        return allowedCharacterSet.isSuperset(of: replacementStringCharacterSet)
+    }
 }
 
 extension ViewController: UICollectionViewDataSource {
