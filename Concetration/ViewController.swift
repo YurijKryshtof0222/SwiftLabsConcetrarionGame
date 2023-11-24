@@ -80,7 +80,7 @@ class ViewController: UIViewController {
                     self.present(errorAlert, animated: true, completion: nil)
                 }
                 else {
-//                    self.restart()
+                    self.restart(rows: setRows!, cols: setCols!)
                 }
         })
         alertController.addAction(continueAction)
@@ -99,22 +99,28 @@ class ViewController: UIViewController {
         return layout
     }
     
-    func restart() {
-        gameConfig = GameConfig(rows: 4, cols: 3)
+    func restart(rows: Int, cols: Int) {
+        gameConfig = GameConfig(rows: rows, cols: cols)
+        compareCardView = nil
         let pairCount = gameConfig.cardCount / 2
-        collectionView.dataSource = self
-        collectionView.collectionViewLayout = configureLayout()
         
-        game = CardsGenerator(count: pairCount)
         for (index, indexPath) in collectionView.indexPathsForVisibleItems.enumerated() {
             if let cell = collectionView.cellForItem(at: indexPath) {
                 if let cardView = cell.contentView as? CardView {
-                    cardView.flip(cardView.btn)
+                    if cardView.card.isFaceUp {
+                        cardView.flip(cardView.btn)
+                        cardView.card.isFaceUp = false
+                    }
                     cardView.configure(card: game.cards[index])
                 }
             }
         }
         
+        collectionView.dataSource = self
+        collectionView.collectionViewLayout = configureLayout()
+        collectionView.reloadData()
+        
+        game = CardsGenerator(count: pairCount)
     }
 
 }
@@ -196,8 +202,7 @@ extension ViewController: CardViewDelegate {
             handler: {
                 action in
 
-                self.restart()
-
+                self.restart(rows: self.gameConfig.rows, cols: self.gameConfig.cols)
         })
 
         alertController.addAction(action)
