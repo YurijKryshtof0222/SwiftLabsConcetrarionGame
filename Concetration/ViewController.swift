@@ -16,15 +16,18 @@ struct Constants {
 class ViewController: UIViewController {
     
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var pauseBtn: UIButton!
     
     var game:CardsGenerator!
     var isDelayInProgress = false
     var compareCardView: CardView? = nil
 //    var cardsCount = 12
-    var gameConfig = GameCoinfig(rows: 3, cols: 2)
+    var gameConfig = GameConfig(rows: 4, cols: 3)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        pauseBtn.addTarget(self, action: #selector(pauseBtnAction), for: .touchUpInside)
         
         let pairCount = gameConfig.cardCount / 2
         game = CardsGenerator(count: pairCount)
@@ -33,10 +36,46 @@ class ViewController: UIViewController {
         collectionView.collectionViewLayout = configureLayout()
     }
     
+    @objc func pauseBtnAction(sender: UIButton!) {
+        let alertController = UIAlertController(
+            title: "Pause",
+            message: "Game is stopped",
+            preferredStyle: .alert)
+        
+        let continueAction = UIAlertAction(
+            title: "Continue",
+            style: .default,
+            handler: {
+                action in
+        })
+        
+        alertController.addTextField{(textField) in
+            textField.placeholder = "Enter rows: "}
+        
+        alertController.addTextField{(textField) in
+            textField.placeholder = "Enter cols: "}
+        
+        let restartAction = UIAlertAction(
+            title: "Restart",
+            style: .default,
+            handler: {
+                action in
+                let setRowsInput = alertController.textFields![0].text!
+                let setColsInput = alertController.textFields![1].text!
+                
+                print(setRowsInput)
+                print(setColsInput)
+        })
+        alertController.addAction(continueAction)
+        alertController.addAction(restartAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     func configureLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: collectionView.frame.size.width / CGFloat(gameConfig.cols),
-                                 height: collectionView.frame.size.height / CGFloat(gameConfig.rows))
+        layout.itemSize = CGSize(width:  collectionView.frame.size.width / CGFloat(gameConfig.cols) - CGFloat(gameConfig.cols),
+                                 height: collectionView.frame.size.height / CGFloat(gameConfig.rows) - CGFloat(gameConfig.rows))
         layout.minimumInteritemSpacing = Constants.cellSpacing
 //        layout.minimumLineSpacing = Constants.cellSpacing
         

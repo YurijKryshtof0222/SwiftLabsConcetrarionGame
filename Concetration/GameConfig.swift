@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct GameCoinfig {
+struct GameConfig {
     let rows: Int
     let cols: Int
     let cardCount: Int

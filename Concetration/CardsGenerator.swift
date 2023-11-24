@@ -39,7 +39,7 @@ class CardsGenerator {
     }
     
     private func getRandomImage() -> String {
-        let randomInt = Int.random(in: 0..<cardsSrs.count)
+        let randomInt = Int.random(in: 0..<cardsCount)
         return cardsSrs[randomInt]
     }
     

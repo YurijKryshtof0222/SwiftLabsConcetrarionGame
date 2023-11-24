@@ -16,14 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Concetration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rco-fu-kco">
-                                <rect key="frame" x="117.5" y="-31.5" width="140" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vZQ-7X-fU6">
-                                <rect key="frame" x="10" y="200" width="355" height="457"/>
+                                <rect key="frame" x="10" y="200" width="355" height="467"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cRH-1Q-C4l">
                                     <size key="itemSize" width="50" height="50"/>
@@ -42,20 +36,29 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJr-cs-M2p">
+                                <rect key="frame" x="136" y="38.5" width="103" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="pauseBtnActionWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qZS-EY-Q9D"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="vZQ-7X-fU6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="943-OC-oM8"/>
-                            <constraint firstItem="Rco-fu-kco" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IUM-sX-g1u"/>
-                            <constraint firstItem="Rco-fu-kco" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-350" id="QEw-Xp-ZVh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mJr-cs-M2p" secondAttribute="trailing" constant="120" id="3R9-o5-Ss9"/>
+                            <constraint firstItem="mJr-cs-M2p" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="120" id="47S-l9-R0j"/>
+                            <constraint firstItem="vZQ-7X-fU6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="943-OC-oM8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vZQ-7X-fU6" secondAttribute="trailing" constant="10" id="Usf-8h-Zrr"/>
                             <constraint firstItem="vZQ-7X-fU6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="nK0-bA-yTa"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vZQ-7X-fU6" secondAttribute="bottom" id="taL-m7-sXl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vZQ-7X-fU6" secondAttribute="bottom" constant="5" id="taL-m7-sXl"/>
+                            <constraint firstItem="mJr-cs-M2p" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="z0X-hu-jp1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="vZQ-7X-fU6" id="a0P-RB-A2B"/>
+                        <outlet property="pauseBtn" destination="mJr-cs-M2p" id="szs-xu-MtN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
