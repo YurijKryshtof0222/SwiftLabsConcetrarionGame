@@ -115,12 +115,11 @@ class ViewController: UIViewController {
                 }
             }
         }
-        
+        game = CardsGenerator(count: pairCount)
+
         collectionView.dataSource = self
         collectionView.collectionViewLayout = configureLayout()
         collectionView.reloadData()
-        
-        game = CardsGenerator(count: pairCount)
     }
 
 }
