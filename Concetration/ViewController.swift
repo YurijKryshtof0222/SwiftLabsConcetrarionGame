@@ -136,7 +136,6 @@ extension ViewController: UITextFieldDelegate {
         }
     
         return allowedCharacterSet.isSuperset(of: replacementStringCharacterSet)
-//            && textField.text!.count <= 1
     }
 }
 
