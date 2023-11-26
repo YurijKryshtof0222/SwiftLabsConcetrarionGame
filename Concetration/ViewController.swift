@@ -8,11 +8,13 @@
 
 import UIKit
 
-struct Constants {
+enum Constants {
     static let delayDuration: TimeInterval = 1.0
     static let cellSpacing: CGFloat = 0.5
     static let lineSpacing: CGFloat = 5
-
+    
+    static let defaultRowCount = 4
+    static let defaultColCount = 3
 }
 
 class ViewController: UIViewController {
@@ -23,8 +25,7 @@ class ViewController: UIViewController {
     var game:CardsGenerator!
     var isDelayInProgress = false
     var compareCardView: CardView? = nil
-//    var cardsCount = 12
-    var gameConfig = GameConfig(rows: 4, cols: 3)
+    var gameConfig = GameConfig(rows: Constants.defaultRowCount, cols: Constants.defaultColCount)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +38,46 @@ class ViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.collectionViewLayout = configureLayout()
     }
+    
+    func configureLayout() -> UICollectionViewFlowLayout {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = calculateItemSize()
+        layout.minimumInteritemSpacing = Constants.cellSpacing
+//        layout.minimumLineSpacing = Constants.lineSpacing
+        
+        return layout
+    }
+    
+    func calculateItemSize() -> CGSize {
+        let width  = collectionView.frame.size.width / CGFloat(gameConfig.cols) - CGFloat(gameConfig.cols)
+        let height = collectionView.frame.size.height / CGFloat(gameConfig.rows) - CGFloat(gameConfig.cols)
+        return CGSize(width: width, height: height)
+    }
+    
+    func restart(rows: Int, cols: Int) {
+        gameConfig = GameConfig(rows: rows, cols: cols)
+        compareCardView = nil
+        let pairCount = gameConfig.cardCount / 2
+        
+        for (index, indexPath) in collectionView.indexPathsForVisibleItems.enumerated() {
+            if let cell = collectionView.cellForItem(at: indexPath) {
+                if let cardView = cell.contentView as? CardView {
+                    if cardView.card.isFaceUp {
+                        cardView.flip(cardView.btn)
+                        cardView.card.isFaceUp = false
+                    }
+                    cardView.configure(card: game.cards[index])
+                }
+            }
+        }
+        game = CardsGenerator(count: pairCount)
+
+        collectionView.dataSource = self
+        collectionView.collectionViewLayout = configureLayout()
+        collectionView.reloadData()
+    }
+    
+    
     
     @objc func pauseBtnAction(sender: UIButton!) {
         let alertController = UIAlertController(
@@ -91,37 +132,23 @@ class ViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    func configureLayout() -> UICollectionViewFlowLayout {
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width:  collectionView.frame.size.width / CGFloat(gameConfig.cols) - CGFloat(gameConfig.cols),
-                                 height: collectionView.frame.size.height / CGFloat(gameConfig.rows) - CGFloat(gameConfig.cols))
-        layout.minimumInteritemSpacing = Constants.cellSpacing
-//        layout.minimumLineSpacing = Constants.lineSpacing
-        
-        return layout
-    }
-    
-    func restart(rows: Int, cols: Int) {
-        gameConfig = GameConfig(rows: rows, cols: cols)
-        compareCardView = nil
-        let pairCount = gameConfig.cardCount / 2
-        
-        for (index, indexPath) in collectionView.indexPathsForVisibleItems.enumerated() {
-            if let cell = collectionView.cellForItem(at: indexPath) {
-                if let cardView = cell.contentView as? CardView {
-                    if cardView.card.isFaceUp {
-                        cardView.flip(cardView.btn)
-                        cardView.card.isFaceUp = false
-                    }
-                    cardView.configure(card: game.cards[index])
-                }
-            }
-        }
-        game = CardsGenerator(count: pairCount)
+    func showYouWinAlert() {
+        let alertController = UIAlertController(
+            title: "",
+            message: "You won",
+            preferredStyle: .alert)
 
-        collectionView.dataSource = self
-        collectionView.collectionViewLayout = configureLayout()
-        collectionView.reloadData()
+        let action = UIAlertAction(
+            title: "Restart",
+            style: .default,
+            handler: {
+                action in
+
+                self.restart(rows: self.gameConfig.rows, cols: self.gameConfig.cols)
+        })
+
+        alertController.addAction(action)
+        self.present(alertController, animated: true, completion: nil)
     }
 
 }
@@ -137,6 +164,7 @@ extension ViewController: UITextFieldDelegate {
     
         return allowedCharacterSet.isSuperset(of: replacementStringCharacterSet)
     }
+    
 }
 
 extension ViewController: UICollectionViewDataSource {
@@ -192,26 +220,6 @@ extension ViewController: CardViewDelegate {
         if game.matchedCount == game.cardsCount {
             showYouWinAlert()
         }
-
     }
-
-    func showYouWinAlert() {
-        let alertController = UIAlertController(
-            title: "",
-            message: "You won",
-            preferredStyle: .alert)
-
-        let action = UIAlertAction(
-            title: "Restart",
-            style: .default,
-            handler: {
-                action in
-
-                self.restart(rows: self.gameConfig.rows, cols: self.gameConfig.cols)
-        })
-
-        alertController.addAction(action)
-        self.present(alertController, animated: true, completion: nil)
-    }
-
+    
 }
