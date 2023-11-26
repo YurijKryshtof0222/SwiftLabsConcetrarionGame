@@ -64,8 +64,8 @@ class ViewController: UIViewController {
         }
         
         let errorAlert = UIAlertController(
-            title: "Error",
-            message: "Count of card cannot be odd",
+            title: "Oops!",
+            message: "Count of card must be even",
             preferredStyle: .alert)
         errorAlert.addAction(continueAction)
                               
