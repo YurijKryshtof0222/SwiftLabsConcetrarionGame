@@ -9,8 +9,10 @@
 import UIKit
 
 struct Constants {
-    static let delayDuration: TimeInterval = 1.5
-    static let cellSpacing: CGFloat = 0.1
+    static let delayDuration: TimeInterval = 1.0
+    static let cellSpacing: CGFloat = 0.5
+    static let lineSpacing: CGFloat = 5
+
 }
 
 class ViewController: UIViewController {
@@ -50,13 +52,13 @@ class ViewController: UIViewController {
         })
         
         alertController.addTextField{(textField) in
-            textField.placeholder = "Enter rows: "
+            textField.placeholder = "Enter rows(from 2 to 5): "
             textField.keyboardType = .numberPad
             textField.delegate = self
         }
         
         alertController.addTextField{(textField) in
-            textField.placeholder = "Enter cols: "
+            textField.placeholder = "Enter cols(from 2 to 5): "
             textField.keyboardType = .numberPad
             textField.delegate = self
         }
@@ -73,14 +75,14 @@ class ViewController: UIViewController {
             style: .default,
             handler: {
                 action in
-                let setRows = Int(alertController.textFields![0].text!)
-                let setCols = Int(alertController.textFields![1].text!)
+                let setRows = Int(alertController.textFields![0].text!) ?? 1
+                let setCols = Int(alertController.textFields![1].text!) ?? 1
                 
-                if (setRows! * setCols!) % 2 != 0 {
+                if (setRows * setCols) % 2 != 0 {
                     self.present(errorAlert, animated: true, completion: nil)
                 }
                 else {
-                    self.restart(rows: setRows!, cols: setCols!)
+                    self.restart(rows: setRows, cols: setCols)
                 }
         })
         alertController.addAction(continueAction)
@@ -92,9 +94,9 @@ class ViewController: UIViewController {
     func configureLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width:  collectionView.frame.size.width / CGFloat(gameConfig.cols) - CGFloat(gameConfig.cols),
-                                 height: collectionView.frame.size.height / CGFloat(gameConfig.rows) - CGFloat(gameConfig.rows))
+                                 height: collectionView.frame.size.height / CGFloat(gameConfig.rows) - CGFloat(gameConfig.cols))
         layout.minimumInteritemSpacing = Constants.cellSpacing
-//        layout.minimumLineSpacing = Constants.cellSpacing
+//        layout.minimumLineSpacing = Constants.lineSpacing
         
         return layout
     }
@@ -126,10 +128,15 @@ class ViewController: UIViewController {
 
 extension ViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let allowedCharacterSet = CharacterSet(charactersIn: "123456789")
+        let allowedCharacterSet = CharacterSet(charactersIn: "2345")
         let replacementStringCharacterSet = CharacterSet(charactersIn: string)
-
+        
+        if (textField.text!.count <= 2) {
+            textField.deleteBackward()
+        }
+    
         return allowedCharacterSet.isSuperset(of: replacementStringCharacterSet)
+//            && textField.text!.count <= 1
     }
 }
 

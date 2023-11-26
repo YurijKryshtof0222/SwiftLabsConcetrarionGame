@@ -22,7 +22,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ksz-3B-sb5">
                     <rect key="frame" x="0.0" y="0.0" width="251" height="271"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t7I-ye-rdD">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="t7I-ye-rdD">
                             <rect key="frame" x="2" y="2" width="247" height="267"/>
                         </imageView>
                     </subviews>
